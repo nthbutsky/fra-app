@@ -1,0 +1,249 @@
+{
+  "locale": "en",
+  "common": {
+    "title": "Frankfurt Airport",
+    "description": "Frankfurt Airport Passenger Services",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "errorPage": {
+      "notFound": {
+        "code": "404",
+        "description": "Page not found"
+      },
+      "serverError": {
+        "code": "500",
+        "description": "Something went wrong"
+      },
+      "cta": "Go back"
+    }
+  },
+  "page": {
+    "gate": {
+      "title": "Frankfurt Airport",
+      "subtitle": "Gate",
+      "tile": {
+        "gateFlightInformation": "Gate & Flight Information",
+        "airportMap": "Airport Map",
+        "comfort": "More Comfort",
+        "experience": "Experience Frankfurt Airport",
+        "problemsWithFlight": "Problems with your flight?",
+        "shareFeedback": "Share Your Feedback"
+      },
+      "airportMapModal": {
+        "title": "What are you looking for?",
+        "tile": {
+          "restroom": "Restroom",
+          "playground": "Playground",
+          "drinkingFountain": "Drinking Fountain",
+          "smokingLounge": "Smoking Lounge",
+          "lhServiceCenter": "LH Service Center",
+          "entireMap": "Entire Map"
+        }
+      },
+      "moreComfortModal": {
+        "title": "Looking for extra comfort?",
+        "tile": {
+          "seatUpgrade": "Upgrade Your Seat",
+          "loungeAccess": "Access The Lounge",
+          "loungeAccessLink": "https://www.lufthansa.com/de/en/lounges",
+          "boardingProcess": "Understand Boarding Process",
+          "boardingProcessLink": "https://www.lufthansa.com/de/en/boarding"
+        }
+      },
+      "experienceModal": {
+        "title": "Ready to experience Frankfurt Airport?",
+        "tile": {
+          "play": "Play and Win",
+          "shop": "Shop and Save",
+          "shopLink": "https://www.frankfurt-airport.com/en/airport-guide/your-coupons.html",
+          "delights": "Delights @ Frankfurt Airport",
+          "delightsLink": "https://www.frankfurt-airport.com/en/airport-guide/eat-drink.html"
+        }
+      }
+    },
+    "list": {
+      "title": "Flights",
+      "search": "Search",
+      "noSearchResultMessage": "No flights found",
+      "fetchError": {
+        "message": {
+          "notFound": "Flight not found",
+          "wentWrong": "Something went wrong"
+        },
+        "buttonText": "Reload"
+      },
+      "tableHeader": {
+        "destination": "Destination",
+        "flight": "Flight",
+        "time": "Time"
+      },
+      "tooltip": {
+        "trigger": "Only flights from the Lufthansa Group are shown",
+        "body": "Lufthansa Group Airlines include Lufthansa, Austrian, Swiss, Discover, AirDolomiti, and Brussels Airlines. For other airlines, please refer to the terminal monitors."
+      },
+      "activityLabel": {
+        "cancelled": "Flight cancelled"
+      }
+    },
+    "detail": {
+      "flight": "Flight ",
+      "cancelledFlight": "Flight cancelled",
+      "terminal": "Terminal",
+      "gate": "Gate",
+      "date": "Date",
+      "boarding": "Boarding",
+      "closeGate": "Close Gate",
+      "walkTimeMin": "min",
+      "walkTimeLessMin": "1 min",
+      "walkTimeText": "Expected travel time to departure gate",
+      "walkTimeEmpty": "Expected travel time to departure gate not available right now, please try later",
+      "walkingTimeCta": "Find route to Map",
+      "fetchError": {
+        "message": {
+          "wentWrong": "Something went wrong"
+        },
+        "buttonText": "Back to flight list"
+      }
+    },
+    "security": {
+      "title": "Frankfurt Airport",
+      "subtitle": "Security",
+      "tile": {
+        "checkGate": "Check your Gate",
+        "airportNavigation": "Airport Map",
+        "securityInformation": "Security Information",
+        "games": "Games"
+      }
+    },
+    "serviceCenter": {
+      "title": "Frankfurt Airport",
+      "infoBanner": {
+        "messageOne": "Please check your emails frequently",
+        "messageTwo": "Please check your flight status frequently"
+      },
+      "tile": {
+        "gateFlightInformation": "Gate & Flight Information",
+        "airportNavigation": "Airport Map",
+        "boardingPass": "Boarding Pass",
+        "loungeInformation": "Lounge Information",
+        "help": "Further Help?"
+      }
+    },
+    "serviceCenterIrreg": {
+      "title": "Frankfurt Airport",
+      "infoBanner": {
+        "title": "Flight Updates",
+        "message": "Please note, some flights are experiencing changes, including delays, cancellations, or rebookings. For the latest updates, keep an eye on your email and this page's gate and flight info. We apologize for any inconvenience and appreciate your understanding."
+      },
+      "tile": {
+        "gateFlightInformation": "Gate & Flight Information",
+        "rebooking": "Rebooking",
+        "hotel": "Hotel",
+        "train": "Train",
+        "mealVoucher": "Meal Voucher",
+        "help": "Further Help?"
+      }
+    },
+    "mealVoucher": {
+      "title": "Meal Voucher",
+      "content": {
+        "header": "Are you eligible for a Meal voucher?",
+        "paragraph": {
+          "one": "Yes, if any of the following apply:",
+          "bullet": {
+            "one": "Your flight has a delay of two hours or more",
+            "two": "Your flight has been cancelled",
+            "three": "You have been denied boarding",
+            "four": "You have missed your connecting flight because of a late inbound flight and your next flight will be in two hours or later"
+          },
+          "two": "The voucher value will be added to the boarding pass of your disrupted flight. You will receive a notification by text or email and can redeem the voucher at numerous participating restaurants at the airport upon presentation of your boarding pass."
+        }
+      },
+      "button": "Participating Restaurants"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": {
+        "paragraph": {
+          "one": {
+            "header": "Purpose of data processing",
+            "text": "The following information will provide you with an easy to navigate overview of what will happen with your personal data when you visit this website. The term \"personal data\" comprises all data that can be used to personally identify you."
+          },
+          "two": {
+            "header": "Data processing controller",
+            "address": {
+              "first": "FraAlliance GmbH",
+              "second": "a Fraport & Lufthansa Joint Venture",
+              "third": "Frankfurt Airport, The Squaire 15",
+              "fourth": "60547 Frankfurt am Main, Germany"
+            },
+            "text": "The controller is the natural person or legal entity that single-handedly or jointly with others makes decisions as to the purposes of and resources for the processing of personal data."
+          },
+          "three": {
+            "header": "Data security officer",
+            "text": "Michael Vogelbacher, colenio GmbH & Co. KG,",
+            "email": "dsb@colenio.de"
+          },
+          "four": {
+            "header": "Data protection",
+            "text": {
+              "one": "The operators of this website take the protection of your personal data very serious. The use of this website is generally possible without providing personal data. Insofar as personal data (e.g. names, e-mail addresses, etc.) is collected on our website, this is always done, as far as possible, on a voluntary basis. This data will not be passed on to third parties without your express consent.",
+              "two": "According to Art. 15 GDPR, you have the right to request information about your personal data processed by us. In particular, you can obtain information about the processing purposes, the category of personal data processed by you, the categories of recipients to whom your data has been or will be disclosed, the planned storage period, the existence of the rights to correction, deletion, restriction of processing or objection, the existence of a right of appeal to a supervisory authority, the origin of their data, if they were not collected from us, and the existence of automated decision-making including profiling and, if necessary, meaningful information on their details.",
+              "three": "In accordance with Art. 16 GDPR, you have the right to immediately request the correction of incorrect or the completion of your personal data stored by us. According to Art. 17 GDPR, you have the right to request the deletion of your personal data stored by us, unless there is a legal basis that entitles or obliges us to continue storing the data. According to Art. 18 GDPR, you have the right to demand the restriction of the processing of your personal data if:",
+              "bullet": {
+                "one": "The accuracy of your personal data is recorded for a period that enables us to verify the accuracy of the personal data,",
+                "two": "the processing is unlawful, and you refuse to delete the personal data and instead request that the use of the personal data be restricted,",
+                "three": "We no longer need the personal data for the purposes of processing, but you need the data to assert, exercise or defend legal claims,",
+                "four": "You have lodged an objection to the processing pursuant to Article 21 (1) GDPR, if it has not yet been determined whether our legitimate reasons outweigh your reasons."
+              },
+              "four": "In accordance with Art. 20 GDPR, you have the right to receive your personal data that you have provided to us in a structured, common and machine-readable format or to request transmission to another person responsible. If your personal data is processed based on legitimate interests in accordance with Article 6 Paragraph 1 Sentence 1 lit. f GDPR, you have the right to object to the processing of your personal data in accordance with Article 21 GDPR, insofar as there are reasons for this that arise from your situation. According to Art. 77 GDPR you have the right to complain to a supervisory authority if you believe that the processing of your personal data violates the GDPR."
+            }
+          },
+          "five": {
+            "header": "Cookies",
+            "text": "This website does not use cookies."
+          },
+          "six": {
+            "header": "Server log files",
+            "text": {
+              "one": "The provider of this website automatically collects and stores information in so-called server log files, which your browser communicates to us automatically. The information comprises:",
+              "bullet": {
+                "one": "Browser type and version used",
+                "two": "Used operating system",
+                "three": "Referrer URL",
+                "four": "Hostname of the accessing computer",
+                "five": "Date and time of access",
+                "six": "IP address"
+              },
+              "two": "This data is recorded based on Art. 6 Sect. 1 lit. f GDPR. This data is not stored together with the IP-address of the user and this data cannot be assigned to specific persons. The temporary storage of the IP address by the system is necessary for the delivery of the website to the device of the user. The operator of the website has a legitimate interest in the technically error free depiction and the optimization of the operator’s website. To achieve this, server log files must be recorded."
+            }
+          },
+          "date": "July 2023"
+        }
+      }
+    },
+    "seatUpgrade": {
+      "title": "Upgrade Your Seat",
+      "content": {
+        "header": "Wishing for more comfort in your flight and your airport experience now?",
+        "paragraph": {
+          "one": "Proceed to our LH Gate Agents or our LH Service Centre to upgrade your upcoming flight now.",
+          "two": "Up to <span class=\"font-bold\">24 hours</span> before departure, you can upgrade online."
+        }
+      },
+      "buttonOne": "Find the nearest LH service centre to upgrade",
+      "buttonTwo": "Upgrade your return flight online"
+    }
+  },
+  "component": {
+    "androidAppBanner": {
+      "name": "Lufthansa",
+      "description": "Rethinking air travel",
+      "message": "GET — On the Google Play Store",
+      "button": "View"
+    },
+    "codeshare": {
+      "title": "Codeshare: Further flightnumbers for this flight."
+    }
+  }
+}

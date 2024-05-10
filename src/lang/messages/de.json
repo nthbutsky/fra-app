@@ -1,0 +1,248 @@
+{
+  "locale": "de",
+  "common": {
+    "title": "Flughafen Frankfurt",
+    "description": "Flughafen Frankfurt Passagierdienste",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "errorPage": {
+      "notFound": {
+        "code": "404",
+        "description": "Seite nicht gefunden"
+      },
+      "serverError": {
+        "code": "500",
+        "description": "Etwas ist schief gelaufen"
+      },
+      "cta": "Zurückgehen"
+    }
+  },
+  "page": {
+    "gate": {
+      "title": "Flughafen Frankfurt",
+      "subtitle": "Gate",
+      "tile": {
+        "gateFlightInformation": "Gate & Flug Information",
+        "airportMap": "Flughafenplan",
+        "comfort": "Mehr Komfort",
+        "experience": "Flughafen Frankfurt erleben",
+        "problemsWithFlight": "Probleme mit Ihrem Flug?",
+        "shareFeedback": "Teilen Sie uns Ihr Feedback mit"
+      },
+      "airportMapModal": {
+        "title": "Wonach suchen Sie?",
+        "tile": {
+          "restroom": "Toilettenanlage",
+          "playground": "Spielplatz",
+          "drinkingFountain": "Trinkwasserbrunnen",
+          "smokingLounge": "Raucherraum",
+          "lhServiceCenter": "LH Service Center",
+          "entireMap": "Gesamte Karte"
+        }
+      },
+      "moreComfortModal": {
+        "title": "Sie möchten zusätzlichen Komfort?",
+        "tile": {
+          "seatUpgrade": "Upgrademöglichkeiten",
+          "loungeAccess": "Zugang zur Lounge",
+          "loungeAccessLink": "https://www.lufthansa.com/de/de/lounges",
+          "boardingProcess": "Boardingprozess verstehen",
+          "boardingProcessLink": "https://www.lufthansa.com/de/de/boarding"
+        }
+      },
+      "experienceModal": {
+        "title": "Bereit, Flughafen Frankfurt zu erleben?",
+        "tile": {
+          "play": "Spielen & gewinnen",
+          "shop": "Einkaufen & sparen",
+          "shopLink": "https://www.frankfurt-airport.com/de/am-flughafen/coupons/deine-coupons.html",
+          "delights": "Genuss @FRA",
+          "delightsLink": "https://www.frankfurt-airport.com/en/airport-guide/your-coupons.html"
+        }
+      }
+    },
+    "list": {
+      "title": "Flüge",
+      "search": "Suche",
+      "noSearchResultMessage": "Keine Flüge gefunden",
+      "fetchError": {
+        "message": {
+          "notFound": "Flug nicht gefunden",
+          "wentWrong": "Etwas ist schief gelaufen"
+        },
+        "buttonText": "Neu laden"
+      },
+      "tableHeader": {
+        "destination": "Reiseziel",
+        "flight": "Flug",
+        "time": "Zeit"
+      },
+      "tooltip": {
+        "trigger": "Es werden nur Flüge der Lufthansa Group angezeigt",
+        "body": "Zu den Fluggesellschaften der Lufthansa Group gehören Lufthansa, Austrian, Swiss, Discover, AirDolomiti und Brussels Airlines. Für andere Fluggesellschaften prüfen Sie bitte die Monitore in den Terminals."
+      },
+      "activityLabel": {
+        "cancelled": "Flug annuliert"
+      }
+    },
+    "detail": {
+      "flight": "Flug ",
+      "cancelledFlight": "Flug annuliert",
+      "terminal": "Terminal",
+      "gate": "Gate",
+      "date": "Datum",
+      "boarding": "Boarding",
+      "closeGate": "Gate schließt",
+      "walkTimeMin": "min",
+      "walkTimeLessMin": "1 min",
+      "walkTimeText": "Voraussichtliche Wegezeit zum Abfluggate.",
+      "walkTimeEmpty": "Keine aktuelle Wegezeit, bitte versuchen Sie es später",
+      "walkingTimeCta": "Route auf der Karte anzeigen",
+      "fetchError": {
+        "message": {
+          "wentWrong": "Etwas ist schief gelaufen"
+        },
+        "buttonText": "Zurück zur Flugliste"
+      }
+    },
+    "security": {
+      "title": "Flughafen Frankfurt",
+      "subtitle": "Sicherheit",
+      "tile": {
+        "checkGate": "Prüfen Sie Ihr Gate",
+        "airportNavigation": "Flughafenplan",
+        "securityInformation": "Informationen zur Sicherheit",
+        "games": "Spiele"
+      }
+    },
+    "serviceCenter": {
+      "title": "Flughafen Frankfurt",
+      "infoBanner": {
+        "messageOne": "Bitte überprüfen Sie regelmäßig Ihre E-Mails",
+        "messageTwo": "Bitte überprüfen Sie Ihren Flugstatus"
+      },
+      "tile": {
+        "gateFlightInformation": "Gate & Flug Information",
+        "airportNavigation": "Flughafenplan",
+        "boardingPass": "Boardkarte",
+        "loungeInformation": "Lounge Information",
+        "help": "Weitere Hilfe?"
+      }
+    },
+    "serviceCenterIrreg": {
+      "title": "Flughafen Frankfurt",
+      "infoBanner": {
+        "title": "Flug-Updates",
+        "message": "Bitte beachten Sie, dass es bei einigen Flügen zu Änderungen kommt, einschließlich Verspätungen, Annullierungen oder Umbuchungen. Die neuesten Informationen finden Sie in Ihren E-Mails und in den Gate- und Fluginformationen auf dieser Seite. Wir entschuldigen uns für etwaige Unannehmlichkeiten und danken für Ihr Verständnis."
+      },
+      "tile": {
+        "gateFlightInformation": "Gate & Flug Information",
+        "rebooking": "Umbuchung",
+        "hotel": "Hotel",
+        "train": "Zug",
+        "mealVoucher": "Verpflegungs-gutschein",
+        "help": "Weitere Hilfe?"
+      }
+    },
+    "mealVoucher": {
+      "title": "Verpflegungsgutschein",
+      "content": {
+        "header": "Wann sind Sie berechtigt einen Verpflegungsgutschein zu erhalten?",
+        "paragraph": {
+          "one": "Wenn einer der folgenden Punkte für Sie zutrifft:",
+          "bullet": {
+            "one": "Bei einer Flugverspätung von mindestens zwei Stunden.",
+            "two": "Wenn Ihr Flug annuliert wurde. ",
+            "three": "Bei Nichtbeförderung aufgrund von Überbuchung.",
+            "four": "Wenn Sie Ihren Anschlussflug aufgrung eines späten Zubringerfluges verpasst haben und Ihr nächster Weiterflug erst in zwei Stunden fliegt."
+          },
+          "two": "Sie brauchen sich für den Erhalt des Verpflegungsgutscheins nicht mehr persönlich zum Serviceschalter begeben. Bitte beachten Sie, dass nur die Bordkarte des betroffenen Fluges zum Verpflegungsgutschein wird. Zusätzlich informieren wir Sie über Ihren Gutschein und seinen Wert auch per E-Mail, SMS oder Push-Nachricht in Ihrer LH App."
+        }
+      },
+      "button": "Teilnehmende Restaurants"
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "content": {
+        "paragraph": {
+          "one": {
+            "header": "Zweck der Datenverarbeitung",
+            "text": "Die folgenden Informationen bieten Ihnen einen einfachen Überblick darüber, was mit Ihren persönlichen Daten geschieht, wenn Sie diese Website besuchen. Der Begriff \"persönliche Daten\" umfasst alle Daten, die dazu verwendet werden können, Sie persönlich zu identifizieren."
+          },
+          "two": {
+            "header": "Verantwortlicher für die Datenverarbeitung",
+            "address": {
+              "first": "FraAlliance GmbH",
+              "second": "a Fraport & Lufthansa Joint Venture",
+              "third": "Frankfurt Airport, The Squaire 15",
+              "fourth": "60547 Frankfurt am Main, Germany"
+            },
+            "text": "Der Verantwortliche ist die natürliche Person oder juristische Person, die allein oder gemeinsam mit anderen Entscheidungen über Zwecke und Mittel der Verarbeitung personenbezogener Daten trifft."
+          },
+          "three": {
+            "header": "Datenschutzbeauftragter",
+            "text": "Michael Vogelbacher, colenio GmbH & Co. KG, ",
+            "email": "dsb@colenio.de"
+          },
+          "four": {
+            "header": "Datenschutz",
+            "text": {
+              "one": "Die Betreiber dieser Website nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Die Nutzung dieser Website ist ohne die Angabe von persönlichen Daten möglich. Soweit auf unserer Website personenbezogene Daten (z.B. Namen, E-Mail-Adressen usw.) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.",
+              "two": "Gemäß Art. 15 DSGVO haben Sie das Recht, Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen. Insbesondere können Sie Informationen über die Verarbeitungszwecke, die Kategorie der von Ihnen verarbeiteten personenbezogenen Daten, die Kategorien von Empfängern, denen Ihre Daten offengelegt wurden oder offengelegt werden, die geplante Speicherdauer, das Bestehen von Rechten auf Berichtigung, Löschung, Einschränkung der Verarbeitung oder Widerspruch, das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde, die Herkunft Ihrer Daten sofern diese nicht von uns erhoben wurden und das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling und gegebenenfalls aussagekräftige Informationen zu Ihren Details erhalten. Gemäß Art. 16 DSGVO haben Sie das Recht, die unverzügliche Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen. Nach Art. 17 DSGVO haben Sie das Recht, die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen, es sei denn, es liegt eine rechtliche Grundlage vor, die uns zur weiteren Speicherung der Daten berechtigt oder verpflichtet. Gemäß Art. 18 DSGVO haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen, wenn",
+              "bullet": {
+                "one": "die Richtigkeit Ihrer personenbezogenen Daten für einen Zeitraum erfasst ist, der es uns ermöglicht, die Richtigkeit der personenbezogenen Daten zu überprüfen",
+                "two": "die Verarbeitung unrechtmäßig ist und Sie die Löschung der personenbezogenen Daten ablehnen und stattdessen die Einschränkung der Nutzung der personenbezogenen Daten verlangen,",
+                "three": "wir die personenbezogenen Daten für die Zwecke der Verarbeitung nicht mehr benötigen, Sie jedoch die Daten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigen,",
+                "four": "Sie gemäß Artikel 21 Absatz 1 DSGVO Widerspruch gegen die Verarbeitung eingelegt haben solange noch nicht feststeht, ob unsere berechtigten Gründe gegenüber Ihren Gründen überwiegen"
+              },
+              "four": "Gemäß Art. 20 DSGVO haben Sie das Recht, Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder die Übertragung an einen anderen Verantwortlichen zu verlangen. Wenn Ihre personenbezogenen Daten aufgrund berechtigter Interessen gemäß Artikel 6 Absatz 1 Satz 1 lit. f DSGVO verarbeitet werden, haben Sie gemäß Artikel 21 DSGVO das Recht, der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen, soweit dies aus Gründen erfolgt, die sich aus Ihrer besonderen Situation ergeben. Gemäß Art. 77 DSGVO haben Sie das Recht, bei einer Aufsichtsbehörde Beschwerde einzulegen, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die DSGVO verstößt."
+            }
+          },
+          "five": {
+            "header": "Cookies",
+            "text": "Diese Website verwendet keine Cookies."
+          },
+          "six": {
+            "header": "Server-Protokolldateien",
+            "text": {
+              "one": "Der Anbieter dieser Website erfasst und speichert automatisch Informationen in sogenannten Server-Protokolldateien, die Ihr Browser automatisch an uns übermittelt. Die Informationen umfassen:",
+              "bullet": {
+                "one": "Verwendeter Browsertyp und -versio",
+                "two": "Verwendetes Betriebssystem",
+                "three": "Referrer-URL",
+                "four": "Hostname des zugreifenden Computers",
+                "five": "Datum und Uhrzeit des Zugriffs",
+                "six": "IP-Adresse"
+              },
+              "two": "Diese Daten werden gemäß Art. 6 Abs. 1 lit. f DSGVO erfasst. Die vorübergehende Speicherung der IP-Adresse durch das System ist erforderlich, um die Auslieferung der Website an das Gerät des Nutzers zu ermöglichen. Der Betreiber der Website hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung der Website des Betreibers. Hierfür müssen Server-Protokolldateien erfasst werden."
+            }
+          },
+          "date": "Juli 2023"
+        }
+      }
+    },
+    "seatUpgrade": {
+      "title": "Upgrademöglichkeiten",
+      "content": {
+        "header": "Sie möchten mehr Komfort für Ihre Reise?",
+        "paragraph": {
+          "one": "Wenden Sie sich an unsere LH Gate Agents oder unser LH Service Center, um ein Upgrade für Ihren nächsten Flug zu erhalten..",
+          "two": "Bis zu <span class=\"font-bold\">24 Stunden</span> vor Abflug können Sie Ihr Upgrade online durchführen."
+        }
+      },
+      "buttonOne": "Nächstgelegenes Service-Center für ein Upgrade finden",
+      "buttonTwo": "Online-Upgrade für Ihren Rückflug"
+    }
+  },
+  "component": {
+    "androidAppBanner": {
+      "name": "Lufthansa",
+      "description": "Fliegen. Weitergedacht",
+      "message": "LADEN - Im Google Play Store",
+      "button": "Anzeigen"
+    },
+    "codeshare": {
+      "title": "Codeshare: Weitere Flugnummern für diesen Flug."
+    }
+  }
+}
