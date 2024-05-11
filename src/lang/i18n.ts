@@ -1,8 +1,15 @@
 import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 
+export const LOCALE = {
+  DE: 'de',
+  EN: 'en',
+} as const;
+type TObjectValues<T> = T[keyof T];
+export type TLocale = TObjectValues<typeof LOCALE>;
+
 // Can be imported from a shared config
-const locales = ['de', 'en'];
+export const locales = Object.values(LOCALE);
 
 export default getRequestConfig(async ({locale}) => {
   // Validate that the incoming `locale` parameter is valid

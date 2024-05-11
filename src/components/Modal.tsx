@@ -1,29 +1,31 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-// import { motion } from "framer-motion";
 
 import CloseIcon from "@/assets/icons/close.svg";
 
-interface Props {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  title,
+}: {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
   title: string;
-}
-
-export default function Modal({ isOpen, onClose, children, title }: Props) {
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMounted, setIsMounted] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
+
+  // useEffect(() => {
+  //   setIsMounted(true);
+  // }, []);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
+    const handleOutsideClick = (event: Event) => {
       if (
         containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
+        !containerRef.current.contains(event.target as Node)
       ) {
         onClose();
       }

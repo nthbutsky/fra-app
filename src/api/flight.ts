@@ -15,7 +15,7 @@ export const getFlightData = (payload: IFlightPayload): IApiResponse<IFlightData
   const gateType = payload.gate.type;
   const gateNumber = payload.gate.number.toUpperCase();
   const query = payload.query;
-  const apiKey = import.meta.env.PUBLIC_ENV__LUFTHANSA_FLIGHT_API;
+  const apiKey = process.env.NEXT_PUBLIC__FLIGHT_API;
 
   const apiUrl = `https://flightapi.fraalliance.de/flightapi/graphql/api/${apiKey}`;
   const apiQuery = `query ${operation} { ${operation}(${gateType}: "${gateNumber}") { leg { ${query} } success errors } }`;

@@ -1,3 +1,5 @@
+import { ComponentType, ReactNode } from "react";
+
 export const TILE = {
   AIRPORT_MAP: 'airport_map',
   AIRPORT_NAVIGATION: 'airport_navigation',
@@ -35,7 +37,7 @@ export type TTile = TObjectValues<typeof TILE>;
 
 export interface ITile {
   name: TTile;
-  icon?: string;
+  icon?: ReactNode;
   text: string;
   link: string | (() => void);
 }

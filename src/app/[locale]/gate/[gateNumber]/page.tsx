@@ -1,37 +1,23 @@
 "use client";
 
 import Image from "next/image";
+
 import clsx from "clsx";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import Modal from "@/components/Modal";
+import Icon from "@/components/Icon";
 
 import LufthansaLightLogo from "@/assets/images/lufthansa-logo-light.svg";
 import GateImage from "@/assets/images/gate.jpg";
 
-import FlightInformationIcon from "@/assets/icons/flight-information.svg";
-import NavigationIcon from "@/assets/icons/navigation.svg";
-import LoungeIcon from "@/assets/icons/lounge.svg";
-import ExperienceIcon from "@/assets/icons/experience.svg";
-import RestroomIcon from "@/assets/icons/restroom.svg";
-import PlaygroundIcon from "@/assets/icons/playground.svg";
-import FountainIcon from "@/assets/icons/fountain.svg";
-import SmokingIcon from "@/assets/icons/smoking.svg";
-import ServiceIcon from "@/assets/icons/service.svg";
-import MapIcon from "@/assets/icons/map.svg";
-import UpgradeIcon from "@/assets/icons/upgrade.svg";
-import BoardingProcessIcon from "@/assets/icons/boarding-process.svg";
-import GamesIcon from "@/assets/icons/games.svg";
-import ShopIcon from "@/assets/icons/shop.svg";
-import DelightsIcon from "@/assets/icons/delights.svg";
-
 import { TILE, ITile } from "@/types/tile";
 import { ROUTE_LIST } from "@/types/route-list";
 
-import { useTranslations } from "next-intl";
-
-export default function Home({
+export default function Gate({
   params: { gateNumber },
 }: {
   params: { gateNumber: string };
@@ -40,19 +26,21 @@ export default function Home({
   const [moreComfortModalOpen, setMoreComfortModalOpen] = useState(false);
   const [experienceModalOpen, setExperienceModalOpen] = useState(false);
 
+  const router = useRouter();
+
   const t = useTranslations("page.gate");
 
   // TILES FOR PAGE
   const pageTileList: ITile[] = [
     {
       name: TILE.GATE_FLIGHT_INFORMATION,
-      icon: FlightInformationIcon,
+      icon: Icon({ name: "flightInformation" }),
       text: t("tile.gateFlightInformation"),
       link: `${ROUTE_LIST.LIST}/gateNumber`,
     },
     {
       name: TILE.AIRPORT_MAP,
-      icon: NavigationIcon,
+      icon: Icon({ name: "navigation" }),
       text: t("tile.airportMap"),
       link: () => {
         setAirportMapModalOpen(true);
@@ -60,7 +48,7 @@ export default function Home({
     },
     {
       name: TILE.MORE_COMFORT,
-      icon: LoungeIcon,
+      icon: Icon({ name: "lounge" }),
       text: t("tile.comfort"),
       link: () => {
         setMoreComfortModalOpen(true);
@@ -68,7 +56,7 @@ export default function Home({
     },
     {
       name: TILE.EXPERIENCE,
-      icon: ExperienceIcon,
+      icon: Icon({ name: "experience" }),
       text: t("tile.experience"),
       link: () => {
         setExperienceModalOpen(true);
@@ -90,65 +78,73 @@ export default function Home({
   const airportMapModalTileList: ITile[] = [
     {
       name: TILE.RESTROOM,
-      icon: RestroomIcon,
+      icon: Icon({ name: "restroom" }),
       text: t("airportMapModal.tile.restroom"),
       // TODO: Add correct link
       link: "#",
     },
     {
       name: TILE.PLAYGROUND,
-      icon: PlaygroundIcon,
+      icon: Icon({ name: "playground" }),
       text: t("airportMapModal.tile.playground"),
       // TODO: Add correct link
       link: "#",
     },
     {
       name: TILE.DRINKING_FOUNTAIN,
-      icon: FountainIcon,
+      icon: Icon({ name: "fountain" }),
       text: t("airportMapModal.tile.drinkingFountain"),
       // TODO: Add correct link
       link: "#",
     },
     {
       name: TILE.SMOKING_LOUNGE,
-      icon: SmokingIcon,
+      icon: Icon({ name: "smoking" }),
       text: t("airportMapModal.tile.smokingLounge"),
       // TODO: Add correct link
       link: "#",
     },
     {
       name: TILE.LH_SERVICE_CENTER,
-      icon: ServiceIcon,
+      icon: Icon({ name: "service" }),
       text: t("airportMapModal.tile.lhServiceCenter"),
       // TODO: Add correct link
       link: "#",
     },
     {
       name: TILE.ENTIRE_MAP,
-      icon: MapIcon,
+      icon: Icon({ name: "map" }),
       text: t("airportMapModal.tile.entireMap"),
       // TODO: Add correct link
       link: "#",
     },
   ];
 
+  const handleClickOnTile = async (tile: ITile) => {
+    if (typeof tile.link === "function") {
+      tile.link();
+    } else {
+      router.push(tile.link);
+    }
+  };
+
   // TILES FOR MORE COMFORT MODAL
   const moreComfortModalTileList: ITile[] = [
     {
       name: TILE.SEAT_UPGRADE,
-      icon: UpgradeIcon,
+      icon: Icon({ name: "upgrade" }),
       text: t("moreComfortModal.tile.seatUpgrade"),
       link: ROUTE_LIST.SEAT_UPGRADE,
     },
     {
       name: TILE.LOUNGE_ACCESS,
-      icon: LoungeIcon,
+      icon: Icon({ name: "lounge" }),
       text: t("moreComfortModal.tile.loungeAccess"),
       link: t("moreComfortModal.tile.loungeAccessLink"),
     },
     {
       name: TILE.BOARDING_PROCESS,
-      icon: BoardingProcessIcon,
+      icon: Icon({ name: "boardingProcess" }),
       text: t("moreComfortModal.tile.boardingProcess"),
       link: t("moreComfortModal.tile.boardingProcessLink"),
     },
@@ -158,31 +154,23 @@ export default function Home({
   const experienceModalTileList: ITile[] = [
     {
       name: TILE.GAMES,
-      icon: GamesIcon,
+      icon: Icon({ name: "games" }),
       text: t("experienceModal.tile.play"),
       link: "https://frawards.fra-alliance.com/web/welcome?sc=20",
     },
     {
       name: TILE.SHOP,
-      icon: ShopIcon,
+      icon: Icon({ name: "shop" }),
       text: t("experienceModal.tile.shop"),
       link: t("experienceModal.tile.shopLink"),
     },
     {
       name: TILE.DELIGHTS,
-      icon: DelightsIcon,
+      icon: Icon({ name: "delights" }),
       text: t("experienceModal.tile.delights"),
       link: t("experienceModal.tile.delightsLink"),
     },
   ];
-
-  const handleClickOnTile = async (tile: ITile) => {
-    if (typeof tile.link === "function") {
-      tile.link();
-    } else {
-      window.location.href = tile.link;
-    }
-  };
 
   return (
     <main>
@@ -231,11 +219,9 @@ export default function Home({
                   onClick={() => handleClickOnTile(tile)}
                 >
                   {tile.icon && (
-                    <Image
-                      className="h-12 text-color-lufthansa-1 max-[300px]:hidden"
-                      src={tile.icon}
-                      alt=""
-                    />
+                    <figure className="h-12 text-color-lufthansa-1 max-[300px]:hidden">
+                      {tile.icon}
+                    </figure>
                   )}
 
                   <span className="font-lufthansa-4 w-full overflow-hidden text-ellipsis text-color-lufthansa-1">
@@ -271,11 +257,9 @@ export default function Home({
                   onClick={() => handleClickOnTile(tile)}
                 >
                   {tile.icon && (
-                    <Image
-                      src={tile.icon}
-                      alt=""
-                      className="h-12 text-color-lufthansa-1 max-[300px]:hidden"
-                    />
+                    <figure className="h-12 text-color-lufthansa-1 max-[300px]:hidden">
+                      {tile.icon}
+                    </figure>
                   )}
                   <span className="font-lufthansa-4 w-full overflow-hidden text-ellipsis text-color-lufthansa-1">
                     {tile.text}
@@ -310,11 +294,9 @@ export default function Home({
                   onClick={() => handleClickOnTile(tile)}
                 >
                   {tile.icon && (
-                    <Image
-                      src={tile.icon}
-                      alt=""
-                      className="h-12 w-12 text-color-lufthansa-1"
-                    />
+                    <figure className="h-12 w-12 text-color-lufthansa-1">
+                      {tile.icon}
+                    </figure>
                   )}
                   <span className="font-lufthansa-4 w-full overflow-hidden text-ellipsis text-color-lufthansa-1">
                     {tile.text}
@@ -343,11 +325,9 @@ export default function Home({
                   onClick={() => handleClickOnTile(tile)}
                 >
                   {tile.icon && (
-                    <Image
-                      src={tile.icon}
-                      alt=""
-                      className="h-12 w-12 text-color-lufthansa-1"
-                    />
+                    <figure className="h-12 w-12 text-color-lufthansa-1">
+                      {tile.icon}
+                    </figure>
                   )}
                   <span className="font-lufthansa-4 w-full overflow-hidden text-ellipsis text-color-lufthansa-1">
                     {tile.text}

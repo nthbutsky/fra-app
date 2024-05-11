@@ -6,6 +6,8 @@ import { getMessages } from "next-intl/server";
 
 import Layout from "@/components/Layout";
 
+import { TLocale } from "@/lang/i18n";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ export default async function RootLayout({
   params: { locale },
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: TLocale };
 }>) {
   // Providing all messages to the client
   // side is the easiest way to get started
