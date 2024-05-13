@@ -1,6 +1,13 @@
 export const FORMAT = {
-  DATE: 'D. MMM',
-  TIME: 'HH:mm',
+  DATE: {
+    month: "short",
+    day: "numeric",
+  },
+  TIME:   {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  },
   UNDEFINED: '-',
 } as const;
 

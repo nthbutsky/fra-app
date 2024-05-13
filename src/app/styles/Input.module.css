@@ -1,0 +1,7 @@
+.input-outline {
+  box-shadow: 0 0 0 2px rgba(60, 54, 218, 1);
+}
+
+.input-cancel-btn[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}

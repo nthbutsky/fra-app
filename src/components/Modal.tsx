@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
-import CloseIcon from "@/assets/icons/close.svg";
+import Icon from "@/components/Icon";
 
 export default function Modal({
   isOpen,
@@ -15,11 +15,6 @@ export default function Modal({
   title: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  // const [isMounted, setIsMounted] = useState(false);
-
-  // useEffect(() => {
-  //   setIsMounted(true);
-  // }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event: Event) => {
@@ -67,11 +62,7 @@ export default function Modal({
               className="h-11 w-11 rounded-md border-[0.5px] border-neutral-1-12 bg-neutral-2-60 p-[10px]"
               onClick={onClose}
             >
-              <Image
-                className="h-6 w-6 text-color-lufthansa-1"
-                src={CloseIcon}
-                alt=""
-              />
+              <Icon name="close" className="h-6 w-6 text-color-lufthansa-1" />
             </button>
           </div>
           {children}

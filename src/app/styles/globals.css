@@ -7,12 +7,13 @@
   font-family: "Archivo";
   font-style: normal;
   font-weight: 400;
-  src: local(""),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.woff2")
+  src:
+    local(""),
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.woff2")
       format("woff2"),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.woff")
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.woff")
       format("woff"),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.ttf")
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-regular.ttf")
       format("truetype");
 }
 
@@ -21,12 +22,13 @@
   font-family: "Archivo";
   font-style: normal;
   font-weight: 500;
-  src: local(""),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.woff2")
+  src:
+    local(""),
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.woff2")
       format("woff2"),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.woff")
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.woff")
       format("woff"),
-    url("../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.ttf")
+    url("../../../src/assets/fonts/archivo-v16-latin/archivo-v16-latin-500.ttf")
       format("truetype");
 }
 
@@ -35,8 +37,9 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: local(""),
-    url("../../src/assets/fonts/inter/inter-regular.ttf") format("truetype");
+  src:
+    local(""),
+    url("../../../src/assets/fonts/inter/inter-regular.ttf") format("truetype");
 }
 
 /* inter-500 */
@@ -44,8 +47,9 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: local(""),
-    url("../../src/assets/fonts/inter/inter-medium.ttf") format("truetype");
+  src:
+    local(""),
+    url("../../../src/assets/fonts/inter/inter-medium.ttf") format("truetype");
 }
 
 /* inter-600 */
@@ -53,8 +57,9 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  src: local(""),
-    url("../../src/assets/fonts/inter/inter-semibold.ttf") format("truetype");
+  src:
+    local(""),
+    url("../../../src/assets/fonts/inter/inter-semibold.ttf") format("truetype");
 }
 
 @layer base {

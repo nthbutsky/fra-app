@@ -1,9 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "@/navigation";
 
-import TableRow from "@/components/TableRow"; // Assuming this is a custom component
+import TableRow from "@/components/TableRow";
+import Input from "@/components/Input";
+import ActivityLabel from "@/components/ActivityLabel";
+import Tooltip, { BODY_OFFSET, TOOLTIP_ALIGN } from "@/components/Tooltip";
+import Icon from "@/components/Icon";
 
 import {
   EOperationName,
@@ -11,44 +15,37 @@ import {
   IFlightData,
   IFlightPayload,
 } from "@/types/api/flight";
-
 import { FORMAT } from "@/types/format";
-import { EGateNumber } from "@/types/gate-number";
+import { ROUTE_LIST } from "@/types/route-list";
 
-import { getFlightData } from "@/api/flight"; // Assuming this is your API fetching function
-import Tooltip, { BODY_OFFSET, TOOLTIP_ALIGN } from "@/components/Tooltip";
-import Icon from "@/components/Icon";
+import { getFlightData } from "@/api/flight";
 import { useTranslations } from "next-intl";
-import { TLocale } from "@/lang/i18n";
-
-// Assuming these are defined elsewhere
-const SKELETON_ROW_NUMBER = 20;
-const ROUTE_LIST = { DETAIL: "/your-detail-route/" }; // Replace with actual route
+import { TAppPathname, TLocale } from "@/lang/i18n";
+import useDateFormat from "@/utils/useDateFormat";
+import { useIntervalTimer } from "@/utils/useIntervalTimer";
 
 export default function List({
-  params: { gateNumber, locale },
+  params: { locale, gateNumber },
 }: {
-  params: { gateNumber: string; locale: TLocale };
+  params: { locale: TLocale; gateNumber: string };
 }) {
-  const [flightData, setFlightData] = useState([] as IFlightData[]);
+  const SKELETON_ROW_NUMBER = 20;
+
+  const [flightList, setFlightList] = useState([] as IFlightData[]);
   const [flightDataInitialList, setFlightDataInitialList] = useState(
     [] as IFlightData[],
   );
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [isListExpired, setIsListExpired] = useState(false);
+  const [listExpired, setListExpired] = useState(false);
 
   const router = useRouter();
-
   const t = useTranslations("page.list");
 
-  const handleClickOnBack = () => {
-    router.back();
-  };
-
+  // List data
   const getFlightList = async () => {
-    setIsLoading(true);
+    setLoading(true);
     try {
       const response = await getFlightData({
         operation: EOperationName.GET_UPCOMING,
@@ -59,32 +56,32 @@ export default function List({
         query: QUERY.FLIGHT_LIST,
       } as IFlightPayload);
       if ("errors" in response.data) {
-        setIsError(true);
+        setError(true);
         console.error(response.data.errors);
         return;
       }
-      setFlightData(response?.data);
+      setFlightList(response?.data);
       setFlightDataInitialList(response?.data);
     } catch (error) {
       console.error(error);
-      setIsError(true);
+      setError(true);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
+  // Search
   const prepareItemForSearch = (payload: string, item: string | undefined) => {
     if (!item) {
       return false;
     }
     return item.toLowerCase().includes(payload.toLowerCase());
   };
-
   const searchItem = (payload: string) => {
     if (!payload) {
-      setFlightData(flightDataInitialList);
+      setFlightList(flightDataInitialList);
     } else {
-      setFlightData(
+      setFlightList(
         flightDataInitialList.filter((item: IFlightData) => {
           return (
             prepareItemForSearch(payload, item.dest_name) ||
@@ -100,17 +97,12 @@ export default function List({
       );
     }
   };
-
-  const onInput = (event) => {
-    setSearchValue(event.target.value);
-    searchItem(event.target.value);
+  const handleSearchOnInput = (value: string) => {
+    setSearchValue(value);
+    searchItem(value);
   };
 
-  const onReload = () => {
-    setIsError(false);
-    getFlightList();
-  };
-
+  // Tooltip
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const handleToggleOnTooltip = () => {
     setTooltipOpen(!tooltipOpen);
@@ -119,57 +111,48 @@ export default function List({
     setTooltipOpen(false);
   };
 
-  const onRefresh = () => {
-    getFlightList();
-  };
-
-  const onRowClick = (flightNumber) => {
+  const handleClickOnTableRow = (flightNumber: string) => {
     getFlightList();
     if (
       !flightDataInitialList.find((item) => item.flight_key === flightNumber)
     ) {
-      setIsListExpired(true);
-      setIsError(true);
+      setListExpired(true);
+      setError(true);
       return;
     }
+    router.push(
+      `${ROUTE_LIST.DETAIL}/${gateNumber}#${flightNumber}` as TAppPathname,
+    );
   };
-
   const handleClickOnRefresh = () => {
     getFlightList();
   };
+  const handleClickOnBack = () => {
+    router.back();
+  };
 
   useEffect(() => {
-    getFlightList();
-    // const intervalId = setInterval(
-    //   getFlightList /* Your desired interval time */,
-    // );
-    // return () => clearInterval(intervalId);
+    useIntervalTimer({
+      callback: getFlightList,
+    });
   }, []);
 
   return (
     <main className="flex flex-col px-5">
+      {/* HEADER */}
       <div className="mb-4 grid grid-cols-3 items-center">
-        {/* BACK BUTTON */}
         <button
           type="button"
           className="h-11 w-11 rounded-md border-[0.5px] border-neutral-1-12 bg-neutral-2-60 p-[10px]"
           onClick={handleClickOnBack}
         >
-          <Icon name="chevronLeft" className="text-color-1" />
+          <Icon name="chevronLeft" className="h-6 w-6 text-color-1" />
         </button>
 
-        {/* TITLE */}
         <span className="font-5 justify-self-center whitespace-nowrap text-color-1">
-          {/* {{
-          `${t("page.list.title")} – ${
-            useDateFormat(new Date(), FORMAT.DATE, {
-              locales: l[0],
-            }).value
-          }`
-        }} */}
+          {t("title")} – {useDateFormat(new Date(), FORMAT.DATE, locale)}
         </span>
 
-        {/* REFRESH BUTTON */}
         <button
           type="button"
           className="h-11 w-11 justify-self-end p-[10px]"
@@ -184,7 +167,7 @@ export default function List({
         <Tooltip
           align={TOOLTIP_ALIGN.BOTTOM_RIGHT}
           bodyOffsetY={BODY_OFFSET.SPACE_2}
-          bodyOffsetX={BODY_OFFSET.NO_OFFSET}
+          bodyOffsetX={BODY_OFFSET.SPACE_4}
           detachBody={false}
           fullWidth={false}
           isOpen={tooltipOpen}
@@ -203,16 +186,15 @@ export default function List({
       </div>
 
       {/* SEARCH */}
-      {/* <aio-input
-      v-model="searchValue"
-      className="mb-4"
-      :input-attrs="{
-        type: 'search',
-      }"
-      :placeholder="t('page.list.search')"
-      :icon="AioSearchIcon"
-      @input="onInput($event)"
-      @clear="searchIte */}
+      <Input
+        className="mb-4"
+        type="search"
+        placeholder={t("search")}
+        icon="search"
+        value={searchValue}
+        onChange={(event) => handleSearchOnInput(event.target.value)}
+        onClear={() => setSearchValue("")}
+      />
 
       {/* TABLE BEGINS */}
       <div>
@@ -226,21 +208,22 @@ export default function List({
             <AioSkeletonTableList rowNumber={SKELETON_ROW_NUMBER} />
           )} */}
 
-        {flightData.length > 0 && !isLoading && !isError && (
+        {flightList.length > 0 && !loading && !error && (
           <div className="no-scrollbar h-[calc(100dvh-258px)] overflow-auto rounded border-[1px] border-neutral-1-12 md:max-h-[calc(800px-258px)]">
-            {flightData.map((row) => (
+            {flightList.map((row) => (
               <TableRow
                 params={{ locale }}
                 key={row.flight_key}
                 data={row}
-                // onClick={() => onRowClick(row.flight_key)}
+                onClick={() => handleClickOnTableRow(row.flight_key)}
               >
-                {/* {Number(row.cancel_status) && (
-                  <AioActivityLabel
-                    label={t("page.list.activityLabel.cancelled")}
+                <></>
+                {Number(row.cancel_status) !== 0 && (
+                  <ActivityLabel
+                    label={t("activityLabel.cancelled")}
                     color="RED"
                   />
-                )} */}
+                )}
               </TableRow>
             ))}
           </div>

@@ -4,23 +4,25 @@ import Image from "next/image";
 
 import clsx from "clsx";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/navigation";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 import Modal from "@/components/Modal";
 import Icon from "@/components/Icon";
 
-import LufthansaLightLogo from "@/assets/images/lufthansa-logo-light.svg";
+import LufthansaLightLogo from "@/assets/images/lufthansa-logo-light.svg?url";
 import GateImage from "@/assets/images/gate.jpg";
 
 import { TILE, ITile } from "@/types/tile";
 import { ROUTE_LIST } from "@/types/route-list";
 
+import { TAppPathname, TLocale } from "@/lang/i18n";
+
 export default function Gate({
-  params: { gateNumber },
+  params: { locale, gateNumber },
 }: {
-  params: { gateNumber: string };
+  params: { locale: TLocale; gateNumber: string };
 }) {
   const [airportMapModalOpen, setAirportMapModalOpen] = useState(false);
   const [moreComfortModalOpen, setMoreComfortModalOpen] = useState(false);
@@ -36,7 +38,7 @@ export default function Gate({
       name: TILE.GATE_FLIGHT_INFORMATION,
       icon: Icon({ name: "flightInformation" }),
       text: t("tile.gateFlightInformation"),
-      link: `${ROUTE_LIST.LIST}/gateNumber`,
+      link: `${ROUTE_LIST.LIST}/${gateNumber}`,
     },
     {
       name: TILE.AIRPORT_MAP,
@@ -120,14 +122,6 @@ export default function Gate({
     },
   ];
 
-  const handleClickOnTile = async (tile: ITile) => {
-    if (typeof tile.link === "function") {
-      tile.link();
-    } else {
-      router.push(tile.link);
-    }
-  };
-
   // TILES FOR MORE COMFORT MODAL
   const moreComfortModalTileList: ITile[] = [
     {
@@ -171,6 +165,14 @@ export default function Gate({
       link: t("experienceModal.tile.delightsLink"),
     },
   ];
+
+  const handleClickOnTile = async (tile: ITile) => {
+    if (typeof tile.link === "function") {
+      tile.link();
+    } else {
+      router.push(tile.link as TAppPathname);
+    }
+  };
 
   return (
     <main>

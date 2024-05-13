@@ -19,12 +19,18 @@ import ChevronLeft from "@/assets/icons/chevron-left.svg";
 import ChevronRight from "@/assets/icons/chevron-right.svg";
 import Refresh from "@/assets/icons/refresh.svg";
 import Info from "@/assets/icons/info.svg";
+import Close from "@/assets/icons/close.svg";
+import Search from "@/assets/icons/search.svg";
+import Warning from "@/assets/icons/warning.svg";
+import Arrival from "@/assets/icons/arrival.svg";
+import Departure from "@/assets/icons/departure.svg";
+import Route from "@/assets/icons/route.svg";
 
 interface IconProps {
   className?: string;
 }
 
-interface IconMap {
+export interface IconMap {
   flightInformation: React.ComponentType<IconProps>;
   navigation: React.ComponentType<IconProps>;
   lounge: React.ComponentType<IconProps>;
@@ -44,6 +50,12 @@ interface IconMap {
   chevronRight: React.ComponentType<IconProps>;
   refresh: React.ComponentType<IconProps>;
   info: React.ComponentType<IconProps>;
+  close: React.ComponentType<IconProps>;
+  search: React.ComponentType<IconProps>;
+  warning: React.ComponentType<IconProps>;
+  arrival: React.ComponentType<IconProps>;
+  departure: React.ComponentType<IconProps>;
+  route: React.ComponentType<IconProps>;
 }
 
 const iconTypes: IconMap = {
@@ -66,6 +78,12 @@ const iconTypes: IconMap = {
   chevronRight: ChevronRight,
   refresh: Refresh,
   info: Info,
+  close: Close,
+  search: Search,
+  warning: Warning,
+  arrival: Arrival,
+  departure: Departure,
+  route: Route,
 };
 
 export default function Icon({

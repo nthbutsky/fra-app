@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 export const TOOLTIP_ALIGN = {
   BOTTOM_CENTER: "BOTTOM_CENTER",
