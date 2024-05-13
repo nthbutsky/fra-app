@@ -8,6 +8,7 @@ import Input from "@/components/Input";
 import ActivityLabel from "@/components/ActivityLabel";
 import Tooltip, { BODY_OFFSET, TOOLTIP_ALIGN } from "@/components/Tooltip";
 import Icon from "@/components/Icon";
+import SkeletonTable from "@/components/SkeletonTable";
 
 import {
   EOperationName,
@@ -204,9 +205,7 @@ export default function List({
           <span>{t("tableHeader.time")}</span>
         </div>
 
-        {/* {isLoading && (
-            <AioSkeletonTableList rowNumber={SKELETON_ROW_NUMBER} />
-          )} */}
+        {loading && <SkeletonTable rowNumber={SKELETON_ROW_NUMBER} />}
 
         {flightList.length > 0 && !loading && !error && (
           <div className="no-scrollbar h-[calc(100dvh-258px)] overflow-auto rounded border-[1px] border-neutral-1-12 md:max-h-[calc(800px-258px)]">
@@ -229,6 +228,7 @@ export default function List({
           </div>
         )}
 
+        {/* TODO: implement table fetch error ui */}
         {/* {flightData.length === 0 &&
             searchValue !== "" &&
             !isLoading &&

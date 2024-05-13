@@ -17,7 +17,6 @@ import {
   IFlightPayload,
 } from "@/types/api/flight";
 import { FORMAT } from "@/types/format";
-import { ROUTE_LIST } from "@/types/route-list";
 
 import { getFlightData } from "@/api/flight";
 import { useTranslations } from "next-intl";
@@ -26,6 +25,7 @@ import { EGateNumber } from "@/types/gate-number";
 import useDateFormat from "@/utils/useDateFormat";
 import { useIntervalTimer } from "@/utils/useIntervalTimer";
 import Skeleton from "@/components/Skeleton";
+import InfoCard from "@/components/InfoCard";
 
 export default function Detail({
   params: { locale, gateNumber },
@@ -206,11 +206,12 @@ export default function Detail({
             )}
 
             {/* INFO CARD */}
-            {/* <aio-info-card
-          :flight-data="flightDetail"
-          :gate-type="'departure_gate'"
-          :is-loading="isLoading"
-          /> */}
+            <InfoCard
+              flightData={flightDetail}
+              gateType="departure_gate"
+              loading={loading}
+              locale={locale}
+            />
 
             {/* TERMINALS & GATES CARD BEGINS */}
             <div className="flex h-[180px] w-full flex-row justify-between rounded-xl bg-neutral-2 px-6 py-[18px] shadow-40">

@@ -25,6 +25,8 @@ import Warning from "@/assets/icons/warning.svg";
 import Arrival from "@/assets/icons/arrival.svg";
 import Departure from "@/assets/icons/departure.svg";
 import Route from "@/assets/icons/route.svg";
+import CirclePoint from "@/assets/icons/circle-point.svg";
+import Flight from "@/assets/icons/flight.svg";
 
 interface IconProps {
   className?: string;
@@ -56,6 +58,8 @@ export interface IconMap {
   arrival: React.ComponentType<IconProps>;
   departure: React.ComponentType<IconProps>;
   route: React.ComponentType<IconProps>;
+  circlePoint: React.ComponentType<IconProps>;
+  flight: React.ComponentType<IconProps>;
 }
 
 const iconTypes: IconMap = {
@@ -84,6 +88,8 @@ const iconTypes: IconMap = {
   arrival: Arrival,
   departure: Departure,
   route: Route,
+  circlePoint: CirclePoint,
+  flight: Flight,
 };
 
 export default function Icon({
