@@ -9,6 +9,7 @@ import ActivityLabel from "@/components/ActivityLabel";
 import Tooltip, { BODY_OFFSET, TOOLTIP_ALIGN } from "@/components/Tooltip";
 import Icon from "@/components/Icon";
 import SkeletonTable from "@/components/SkeletonTable";
+import FetchError from "@/components/fetch-error";
 
 import {
   EOperationName,
@@ -126,6 +127,10 @@ export default function List({
     );
   };
   const handleClickOnRefresh = () => {
+    setError(false);
+    getFlightList();
+  };
+  const handleClickOnReload = () => {
     getFlightList();
   };
   const handleClickOnBack = () => {
@@ -157,7 +162,7 @@ export default function List({
         <button
           type="button"
           className="h-11 w-11 justify-self-end p-[10px]"
-          onClick={handleClickOnRefresh}
+          onClick={handleClickOnReload}
         >
           <Icon name="refresh" className="text-color-1" />
         </button>
@@ -205,10 +210,8 @@ export default function List({
           <span>{t("tableHeader.time")}</span>
         </div>
 
-        {loading && <SkeletonTable rowNumber={SKELETON_ROW_NUMBER} />}
-
         {flightList.length > 0 && !loading && !error && (
-          <div className="no-scrollbar h-[calc(100dvh-258px)] overflow-auto rounded border-[1px] border-neutral-1-12 md:max-h-[calc(800px-258px)]">
+          <div className="no-scrollbar h-[calc(100dvh-275px)] overflow-auto rounded border-[1px] border-neutral-1-12 md:max-h-[calc(800px-275px)]">
             {flightList.map((row) => (
               <TableRow
                 params={{ locale }}
@@ -216,7 +219,6 @@ export default function List({
                 data={row}
                 onClick={() => handleClickOnTableRow(row.flight_key)}
               >
-                <></>
                 {Number(row.cancel_status) !== 0 && (
                   <ActivityLabel
                     label={t("activityLabel.cancelled")}
@@ -227,31 +229,32 @@ export default function List({
             ))}
           </div>
         )}
-
-        {/* TODO: implement table fetch error ui */}
-        {/* {flightData.length === 0 &&
-            searchValue !== "" &&
-            !isLoading &&
-            !isError && (
-              <div className="flex h-[calc(100dvh-258px)] items-center justify-center lg:max-h-[calc(800px-258px)]">
-                {t("page.list.noSearchResultMessage")}
-              </div>
-            )}
-
-          {isError && (
-            <AioFetchError
-              className="h-[calc(100dvh-258px)] justify-center md:max-h-[calc(800px-258px)]"
-              message={
-                isListExpired
-                  ? t("page.list.fetchError.message.notFound")
-                  : t("page.list.fetchError.message.wentWrong")
-              }
-              buttonText={t("page.list.fetchError.buttonText")}
-              onClick={onReload}
-            />
-          )} */}
       </div>
       {/* TABLE ENDS */}
+
+      {/* NO RESULT SEARCH */}
+      {flightList.length === 0 && searchValue !== "" && !loading && !error && (
+        <div className="flex h-[calc(100dvh-275px)] items-center justify-center lg:max-h-[calc(800px-275px)]">
+          {t("noSearchResultMessage")}
+        </div>
+      )}
+
+      {/* SKELETON TABLE (LOADING VIEW) */}
+      {loading && <SkeletonTable rowNumber={SKELETON_ROW_NUMBER} />}
+
+      {/* ON FETCH ERROR VIEW */}
+      {error && (
+        <FetchError
+          className="h-[calc(100dvh-275px)] justify-center md:max-h-[calc(800px-275px)]"
+          message={
+            listExpired
+              ? t("fetchError.message.notFound")
+              : t("fetchError.message.wentWrong")
+          }
+          buttonText={t("fetchError.buttonText")}
+          onClick={handleClickOnRefresh}
+        />
+      )}
     </main>
   );
 }

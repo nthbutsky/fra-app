@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRef, useEffect } from "react";
 
 import Icon from "@/components/Icon";
